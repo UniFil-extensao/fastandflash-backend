@@ -18,6 +18,7 @@ Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobrenos'])->name('site.sobrenos');
 
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::post('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 
 Route::get('/login', [\App\Http\Controllers\ContatoController::class,'login'])->name('site.login');
 
