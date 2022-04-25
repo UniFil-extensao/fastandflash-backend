@@ -1,7 +1,6 @@
 @extends('site.layout.basic_lay')
 @section('tittle','Sobre-')
 @section('content')
-@include('site.layout.includes.top')
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
             <h1>Olá, eu sou o Super Gestão</h1>

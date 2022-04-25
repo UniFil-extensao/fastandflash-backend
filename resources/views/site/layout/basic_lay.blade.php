@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
+        @include('site.layout._includes.top')
         @yield('content')
     </body>
 </html>
