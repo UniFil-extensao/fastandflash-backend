@@ -26,6 +26,13 @@ return new class extends Migration
             $table->integer('estoque_min');
             $table->integer('estoque_max');
             $table->timestamps();
+
+            //adicionando chaves estrageiras
+            $table->foreign('filial_id')->references('id')->on('filiais');
+            $table->foreign('produto_id')->references('id')->on('produtos');
+        });
+        Schema::table('produtos', function(Blueprint $table){
+            $table->dropColumn(['preco_venda','estoque_min','estoque_max']);
         });
     }
 
@@ -36,6 +43,10 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('produtos', function(Blueprint $table){
+            $table->decimal('preco_venda');
+            $table->integer('estoque_min');
+            $table->integer('estoque_max');
+        });
     }
 };
