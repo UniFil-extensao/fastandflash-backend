@@ -44,9 +44,12 @@ return new class extends Migration
     public function down()
     {
         Schema::table('produtos', function(Blueprint $table){
-            $table->decimal('preco_venda');
+            $table->decimal('preco_venda',8,2);
             $table->integer('estoque_min');
             $table->integer('estoque_max');
         });
+        Schema::dropIfExists('produtos_filiais');
+        Schema::dropIfExists('filiais');
+
     }
 };
