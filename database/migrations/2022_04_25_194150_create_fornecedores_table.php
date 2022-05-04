@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 50);
             $table->string('email',50);
-            $table->string('uf',2);            
+            $table->string('uf',2);
+            $table->softDeletes();            
             $table->timestamps();
         });
     }
