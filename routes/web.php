@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContatoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,10 @@ Route::get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])
 
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobrenos'])->name('site.sobrenos');
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
-Route::post('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::get('/contato', [ContatoController::class,'contato'])->name('site.contato');
+Route::post('/contato', [ContatoController::class,'gravar'])->name('site.contato');
 
-Route::get('/login', [\App\Http\Controllers\ContatoController::class,'login'])->name('site.login');
+Route::get('/login', [ContatoController::class,'login'])->name('site.login');
 
 Route::prefix('/app')->group(function(){
     Route::get('/clientes', function(){return 'CLIENTES';})->name('app.clientes');
