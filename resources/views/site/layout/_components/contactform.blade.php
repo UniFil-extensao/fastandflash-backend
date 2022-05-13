@@ -1,19 +1,21 @@
 <form action={{route('site.contato')}} method = "POST">
     @csrf
-    <input name = "nome" type="text" placeholder="Nome" class={{ $border }}>
+    <input name = "nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class={{ $border }}>
     <br>
-    <input name = "telefone" type="text" placeholder="Telefone" class={{ $border }}>
+    <input name = "telefone" value="{{ old('telefone') }}" type="text" placeholder="Telefone" class={{ $border }}>
     <br>
-    <input name = "email" type="text" placeholder="E-mail" class={{ $border }}>
+    <input name = "email" value="{{ old('email') }}" type="text" placeholder="E-mail" class={{ $border }}>
     <br>
     <select name= "motivo_contato" class={{ $border }}>
-        <option value="0">Qual o motivo do contato?</option>
-        <option value="1">Dúvida</option>
-        <option value="2">Elogio</option>
-        <option value="3">Reclamação</option>
+        <option value="">Qual o motivo do contato?</option>
+        @foreach ($motivo_contatos as $key=>$motivo_contato)
+            <option value="{{ $key }}">{{ $motivo_contato }}</option>
+        @endforeach
     </select>
     <br>
-    <textarea name = "mensagem" class={{ $border }}>Preencha aqui a sua mensagem</textarea>
+    <textarea name = "mensagem" class={{ $border }}>@if( old('mensagem') != ''){{ old('mensagem') }}@else Preencha aqui a sua mensagem
+        @endif
+    </textarea>
     <br>
     <button type="submit" class={{ $border }}>ENVIAR</button>
 </form>

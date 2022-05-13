@@ -20,16 +20,21 @@ class ContatoController extends Controller
         // $contato->fill($request->all());
         // $contato->save();
         // print_r($contato->getAttributes());
-        return view('site.contato'); 
+        $motivo_contatos = [
+            '1'=>'Dúvida',
+            '2'=>'Elogio',
+            '3'=>'Reclamação'
+        ];
+        return view('site.contato',['motivo_contatos'=>$motivo_contatos]); 
     }
 
     public function gravar(Request $request){
         $request->validate([
-            'nome' => 'required',
+            'nome' => 'required|max:50',
             'telefone' => 'required',
             'email' => 'required',
             'motivo_contato'=> 'required',
-            'mensagem' => 'required'
+            'mensagem' => 'required|max:2000'
         ]);
     }
 }

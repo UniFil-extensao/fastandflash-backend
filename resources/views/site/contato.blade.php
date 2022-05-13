@@ -8,7 +8,7 @@
 
             <div class="informacao-pagina">
                 <div class="contato-principal">
-                    @component('site.layout._components.contactform', ['border' => 'borda-preta'])
+                    @component('site.layout._components.contactform', ['border' => 'borda-preta', 'motivo_contatos'=>$motivo_contatos])
                     @endcomponent
                 </div>
             </div>  
