@@ -9,7 +9,7 @@
     <select name= "motivo_contato" class={{ $border }}>
         <option value="">Qual o motivo do contato?</option>
         @foreach ($motivo_contatos as $key=>$motivo_contato)
-            <option value="{{ $key }}">{{ $motivo_contato }}</option>
+            <option value="{{ $motivo_contato->id }}">{{ $motivo_contato->motivo_contato }}</option>
         @endforeach
     </select>
     <br>

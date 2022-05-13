@@ -20,11 +20,7 @@ class ContatoController extends Controller
         // $contato->fill($request->all());
         // $contato->save();
         // print_r($contato->getAttributes());
-        $motivo_contatos = [
-            '1'=>'Dúvida',
-            '2'=>'Elogio',
-            '3'=>'Reclamação'
-        ];
+        $motivo_contatos = MotivoContato::all();
         return view('site.contato',['motivo_contatos'=>$motivo_contatos]); 
     }
 
