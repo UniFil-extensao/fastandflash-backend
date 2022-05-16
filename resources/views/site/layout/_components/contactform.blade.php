@@ -1,3 +1,4 @@
+{{ $errors }}
 <form action={{route('site.contato')}} method = "POST">
     @csrf
     <input name = "nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class={{ $border }}>
@@ -6,7 +7,7 @@
     <br>
     <input name = "email" value="{{ old('email') }}" type="text" placeholder="E-mail" class={{ $border }}>
     <br>
-    <select name= "motivo_contato" class={{ $border }}>
+    <select name= "motivo_contatos_id" class={{ $border }}>
         <option value="">Qual o motivo do contato?</option>
         @foreach ($motivo_contatos as $key=>$motivo_contato)
             <option value="{{ $motivo_contato->id }}">{{ $motivo_contato->motivo_contato }}</option>
