@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\Models\LogAcesso;
 
-class LogAcessoMiddleware
+class AutenticacaoMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,12 +16,6 @@ class LogAcessoMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $ip = $request->server->get('REMOTE_ADDR');
-        $rota = $request->server->get('REQUEST_URI');
-
-        LogAcesso::create([
-            'log'=>"IP: $ip rota: $rota"
-        ]);
-        return Response('NAO');
+        return response('Acesso Negado');
     }
 }
