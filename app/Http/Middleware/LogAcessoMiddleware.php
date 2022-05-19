@@ -23,6 +23,6 @@ class LogAcessoMiddleware
         LogAcesso::create([
             'log'=>"IP: $ip rota: $rota"
         ]);
-        return Response('NAO');
+        return $next($request);
     }
 }

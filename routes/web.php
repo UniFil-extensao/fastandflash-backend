@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\LoginController;
 use App\Http\Middleware\LogAcessoMiddleware;
 
 /*
@@ -24,7 +25,8 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobre
 Route::get('/contato', [ContatoController::class,'contato'])->name('site.contato');
 Route::post('/contato', [ContatoController::class,'gravar'])->name('site.contato');
 
-Route::get('/login', [ContatoController::class,'login'])->name('site.login');
+Route::get('/login', [LoginController::class,'index'])->name('site.login');
+Route::post('/login', [LoginController::class,'autenticar'])->name('site.login');
 
 Route::middleware('autenticacao')->prefix('/app')->group(function(){
     Route::get('/clientes', function(){return 'CLIENTES';})
