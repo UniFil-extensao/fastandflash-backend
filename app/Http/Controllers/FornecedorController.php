@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 class FornecedorController extends Controller
 {
     public function index(){
-        $fornecedores = ['fornecedor 1',
-        'fornecedor 1',
-        'fornecedor 1',
-        'fornecedor 1',
-        'fornecedor 1'];
-        return view('app.fornecedor.index', compact('fornecedores'));
+        return view('app.fornecedor.index');
+    }
+
+    public function listar(){
+        return view('app.fornecedor.listar');
+    }
+
+    public function adicionar(){
+        return view('app.fornecedor.adicionar');
     }
 }
