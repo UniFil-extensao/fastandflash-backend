@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('tecnicos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome',100);
-            $table->text('descricao')->nullable();
-            $table->integer('peso')->nullable();
-            $table->float('preco_venda',8,2)->default(0.01);
-            $table->integer('estoque_min')->default(1);
-            $table->integer('estoque_max')->default(1);
+            $table->string('nome');
+            $table->string('funcao');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('tecnicos');
     }
 };

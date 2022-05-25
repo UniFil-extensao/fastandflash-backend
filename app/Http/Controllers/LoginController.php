@@ -22,11 +22,12 @@ class LoginController extends Controller
     public function autenticar(Request $request){
         $regras = [
             'usuario' => 'email',
-            'senha' => 'required|min:4'
+            'senha' => 'required|min:4|max:40'
         ];
         $validar = [
             'usuario.email' => 'Email inválido',
             'senha.required' => 'O campo senha é obrigatório',
+            'senha.max' => 'Máximo 40 caracteres para senha',
             'senha.min' => 'Mínimo 4 caracteres para senha',
         ];
 
@@ -43,7 +44,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.home', ['erro' => 1]);
+            return redirect()->route('app.tecnico', ['erro' => 1]);
         }else{
             return redirect()->route('site.login', ['erro' => 1]);
         }
@@ -51,6 +52,6 @@ class LoginController extends Controller
     }
     public function sair(){
         session_destroy();
-        return redirect()->route('site.index');
+        return redirect()->route('site.login');
     }
 }
