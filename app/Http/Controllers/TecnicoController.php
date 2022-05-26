@@ -15,7 +15,7 @@ class TecnicoController extends Controller
     public function listar(Request $request){
 
         $tecnicos = User::where('name', 'like', '%'.$request->name.'%')
-        ->where('email', 'like', '%'.$request->email.'%')-get();
+        ->where('email', 'like', '%'.$request->email.'%')-paginate(8);
         return view('app.tecnico.consulta', ['tecnicos'=>$tecnicos]);
     }
 
@@ -60,7 +60,8 @@ class TecnicoController extends Controller
     }
 
     public function editar($id){
-        $tecnicos = Tecnico::find($id);
+        $tecnicos = User::find($id);
+        // dd($tecnicos);
         return view('app.tecnico.adicionar', ['tecnicos' => $tecnicos]);
     }
 }

@@ -206,3 +206,33 @@ span {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+.table{
+    font-family: arial, sans-serif;
+    width: 100%;
+    height:20em;
+    border-collapse:collapse
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.tbody{
+    background-color: #c4e6ff
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.knopf.knopf {
+  --knopf-raised-height: 1px;
+  border-block-end-color: hsl(var(--knopf-hover-background-color));
+  border-block-end-width: var(--knopf-raised-height);
+  margin-block-start: calc(var(--knopf-raised-height) * -1);
+  width: auto;
+  height: auto;
+}
+
+.knopf.knopf:hover {
+  --knopf-raised-height: 1px;
+  border-block-end-color: hsl(var(--knopf-active-background-color));
+}

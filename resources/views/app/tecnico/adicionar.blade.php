@@ -16,17 +16,17 @@
             <div style="width: 30%; margin-left: auto; margin-right: auto">
                 {{ $resposta ?? ' ' }}
             <form method="post" action="{{ route('app.tecnico.adicionar') }}">
-                <input type="hidden" name="id" value="{{ $tecnico->id ?? '' }}">
+                <input type="hidden" name="id" value="{{ $tecnicos->id ?? '' }}">
                 @csrf
-                <input type="text" name="name" value="{{ $tecnico->name ?? old('name') }}" placeholder="Nome" class="borda-preta">
+                <input type="text" name="name" value="{{ $tecnicos->name ?? old('name') }}" placeholder="Nome" class="borda-preta">
                 @if ($errors->has('name'))
                 {{ $errors->first('name') }}
                 @endif
-                <input type="text" name="email" value="{{ $tecnico->email ?? old('email') }}" placeholder="Email" class="borda-preta">
+                <input type="text" name="email" value="{{ $tecnicos->email ?? old('email') }}" placeholder="Email" class="borda-preta">
                 @if ($errors->has('email'))
                 {{ $errors->first('email') }}
                 @endif
-                <input type="password" name="password" value="{{ $tecnico->password ?? old('password') }}" placeholder="Senha" class="borda-preta">
+                <input type="password" name="password" value="{{ $tecnicos->password ?? old('password') }}" placeholder="Senha" class="borda-preta">
                 @if ($errors->has('password'))
                 {{ $errors->first('password') }}
                 @endif

@@ -41,8 +41,9 @@ class LoginController extends Controller
 
         if (isset($usuario->name)){
             session_start();
-            $_SESSION['nome'] = $usuario->name;
+            $_SESSION['name'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
+            $_SESSION['tip_acess'] = $usuario->tip_acess;
 
             return redirect()->route('app.tecnico', ['erro' => 1]);
         }else{

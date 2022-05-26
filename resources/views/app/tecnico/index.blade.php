@@ -2,29 +2,36 @@
 @section('tittle', 'Fornecedor')
 @section('content')
     <div class="conteudo-pagina">
-        <div class="titulo-pagina">
+        <div style="border-radius:50px" class="titulo-pagina">
             <p>Tecnicos<p>
         </div>
 
-        <div class="infomacao-pagina2">
+        <div style="height: 5%">
+
+        </div>
+        <div style="margin-left: 15%; margin-right:15%" class="infomacao-pagina2">
             <div style="width: 90%; margin-left: auto; margin-right: auto">
                 </div>        
-                <table style="width: 100%; border-collapse:collapse">
+                <table class="table">
                     <thead>
-                        <tr style="background-color: rgb(110, 110, 110)">
+                        <tr style="background-color: #006BA6">
+                            <th>Id</th>
                             <th>Nome</th>
                             <th>Email</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody style="background-color: #ccc">
+                    <tbody>
                         @foreach($tecnicos as $tecnico)
                         <tr>
+                            <td>{{ $tecnico->id }}</td>
                             <td>{{ $tecnico->name }}</td>
                             <td>{{ $tecnico->email }}</td>
                             <td><a>Excluir</a></td>
-                            <td><a href="{{ route('app.tecnico.editar', $tecnico->id) }}">Editar</a></td>
+                            <td>
+                                <a href="{{ route('app.tecnico.editar', $tecnico->id) }}">Editar</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
