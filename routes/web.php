@@ -29,6 +29,8 @@ Route::middleware('autenticacao')->prefix('/app')->group(function(){
     Route::get('/tecnico/adicionar',[\App\Http\Controllers\TecnicoController::class,'adicionar'])->name('app.tecnico.adicionar');
     Route::post('/tecnico/adicionar',[\App\Http\Controllers\TecnicoController::class,'adicionar'])->name('app.tecnico.adicionar');
     Route::get('/tecnico/editar/{id}',[\App\Http\Controllers\TecnicoController::class,'editar'])->name('app.tecnico.editar');
+    Route::get('/tecnico/excluir/{id}',[\App\Http\Controllers\TecnicoController::class,'excluir'])->name('app.tecnico.excluir');
+
 
     Route::get('/produto',[\App\Http\Controllers\ProdutoController::class,'index'])->name('app.produto');
 });

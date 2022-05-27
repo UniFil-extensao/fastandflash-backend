@@ -8,20 +8,23 @@ use App\Models\User;
 class TecnicoController extends Controller
 {
     public function index(){
+        
+        $msg = " ";
         $tecnicos = User::where('tip_acess', '<', '2')->get();
-        return view('app.tecnico.index', ['tecnicos'=>$tecnicos]);
+        return view('app.tecnico.index', ['tecnicos'=>$tecnicos, 'msg' => $msg]);
     }
 
     public function listar(Request $request){
-
+        
+        $msg = " ";
         $tecnicos = User::where('name', 'like', '%'.$request->name.'%')
         ->where('email', 'like', '%'.$request->email.'%')-paginate(8);
-        return view('app.tecnico.consulta', ['tecnicos'=>$tecnicos]);
+        return view('app.tecnico.consulta', ['tecnicos'=>$tecnicos, 'msg' => $msg]);
     }
 
     public function adicionar(Request $request){
 
-        $resposta = '';
+        $msg = " ";
 
         if($request->_token != "" && $request->id == ""){
 
@@ -44,24 +47,30 @@ class TecnicoController extends Controller
             // dd($request->all());
             User::create($request->all());
 
-            $resposta = 'Cadastro Realizado com sucesso';
+            $msg = 'Cadastro Realizado com sucesso';
         }elseif ($request->_token != "" && $request->id != "") {
             $tecnicos = User::find($request->id);
             $update = $tecnicos->update($request->all());
 
             if ($update) {
-                $resposta = 'Atualizado com sucesso';
+                $msg = 'Atualizado com sucesso';
             }else {
-                $resposta = 'Atualização falhou';
+                $msg = 'Atualização falhou';
             }
 
         }
-        return view('app.tecnico.adicionar',['resposta'=> $resposta]);
+        return view('app.tecnico.adicionar',['msg' => $msg]);
     }
 
     public function editar($id){
+        $msg = " ";
         $tecnicos = User::find($id);
-        // dd($tecnicos);
-        return view('app.tecnico.adicionar', ['tecnicos' => $tecnicos]);
+        return view('app.tecnico.adicionar', ['tecnicos' => $tecnicos, 'msg' => $msg]);
+    }
+
+    public function excluir($id){
+        User::find($id)->delete();
+        
+        return redirect()->route('app.tecnico');
     }
 }

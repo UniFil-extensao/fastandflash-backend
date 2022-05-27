@@ -1,6 +1,6 @@
 <div class="topo">
     <div class="logo">
-        <img style="width:66%" src="{{ asset('img/logo.png') }}">
+        <img style="width: 50%" src="{{ asset('img/logo.png') }}">
     </div>
 
     <div class="menu">

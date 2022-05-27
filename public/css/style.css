@@ -7,11 +7,11 @@ body {
 
 p,
 span {
-    color: #ffffff;
+    color: blackfff;
 }
 
 h1 {
-    color: #ffffff;
+    color: blackfff;
     font-size: 28px;
 }
 
@@ -35,11 +35,11 @@ button {
 }
 
 .texto-branco {
-    color: #ffffff;
+    color: black;
 }
 
 .borda-branca {
-    border: solid 1px #fff;
+    border: solid 1px black;
 }
 
 .borda-preta {
@@ -49,7 +49,7 @@ button {
 button {
     background-color: #268fd0;
     cursor: pointer;
-    color: #fff;
+    color: black;
 }
 
 button:hover {
@@ -160,6 +160,8 @@ button:hover {
 }
 
 .titulo-pagina {
+    width: 100%;
+    height: 7em;
     padding: 100px 0px 60px 0px;
     background-color: #2a9ee2;
     text-align: center;
@@ -206,33 +208,7 @@ span {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
-.table{
-    font-family: arial, sans-serif;
-    width: 100%;
-    height:20em;
-    border-collapse:collapse
-}
 td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
+    text-align:justify;
     padding: 8px;
-}
-.tbody{
-    background-color: #c4e6ff
-}
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-.knopf.knopf {
-  --knopf-raised-height: 1px;
-  border-block-end-color: hsl(var(--knopf-hover-background-color));
-  border-block-end-width: var(--knopf-raised-height);
-  margin-block-start: calc(var(--knopf-raised-height) * -1);
-  width: auto;
-  height: auto;
-}
-
-.knopf.knopf:hover {
-  --knopf-raised-height: 1px;
-  border-block-end-color: hsl(var(--knopf-active-background-color));
 }
