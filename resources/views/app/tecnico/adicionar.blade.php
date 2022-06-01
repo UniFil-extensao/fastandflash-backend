@@ -61,7 +61,7 @@
                       </div>
                     </div>
                 </fieldset>
-                   <button style="width: 30%" type="submit" class="btn btn-primary">Cadastrar</button>
+                   <button style="width: 30%" type="submit" class="btn btn-primary">Confirmar</button>
             </form>
             </div>
         </div>

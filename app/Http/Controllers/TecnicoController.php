@@ -46,6 +46,7 @@ class TecnicoController extends Controller
 
             // dd($request->all());
             User::create($request->all());
+            return redirect()->route('app.tecnico',['msg'=> $msg]);
 
             $msg = 'Cadastro Realizado com sucesso';
         }elseif ($request->_token != "" && $request->id != "") {
@@ -53,7 +54,7 @@ class TecnicoController extends Controller
             $update = $tecnicos->update($request->all());
 
             if ($update) {
-                $msg = 'Atualizado com sucesso';
+                return redirect()->route('app.tecnico',['msg'=> $msg]);
             }else {
                 $msg = 'Atualização falhou';
             }
